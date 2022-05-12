@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="grey_800">#282F3E</color>
+    <color name="grey_50">#F6F6F9</color>
+
+    <color name="ultramarine_blue">#109CF1</color>
+    <color name="nickel">#727171</color>
+    <color name="black_alpha_25">#40000000</color>
+    <color name="black_alpha_50">#80000000</color>
+    <color name="black_alpha_90">#B3000000</color>
+    <color name="black_alpha_15">#26000000</color>
+    <color name="main_black_color">#4C525C</color>
+    <color name="pin_view_color_white">#40FFFFFF</color>
+    <color name="text_color_black">#000000</color>
+    <color name="text_color_black_a_60">#99000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black_alpha_1">#FFFFFF</color>
+    <color name="black_alpha2">#0DFFFFFF</color>
+    <color name="white_a_50">#80FFFFFF</color>
+    <color name="lavender_blue">#CCC7D2FC</color>
+    <color name="unselected_icon_color">#8B90A5</color>
+    <color name="selected_icon_color">#109CF1</color>
+    <color name="background_color">#F1F2F6</color>
+    <color name="grey_color">#80CCCCCC</color>
+    <color name="text_color_black_a_50">#80000000</color>
+    <color name="text_color_black_a_30">#4D000000</color>
+    <color name="text_color_black_a_10">#1A000000</color>
+    <color name="disabled_color">#FAF6F5</color>
+    <color name="ultramarine_blue_alpha_15">#98A8E1</color>
+    <color name="green">#00A34C</color>
+    <color name="red">#B32318</color>
+    <color name="orange">#F68632</color>
+    <color name="orange_10">#FDECE0</color>
+    <color name="main_text_color">#313649</color>
+
+
+    <color name="black_alpha_10">#1A000000</color>
+    <color name="black_alpha_5">#0D000000</color>
+    <color name="black_alpha_2">#00000000</color>
+    <color name="statusbar_color">#08000000</color>
+    <color name="default_color">#1A000000</color>
+    <color name="black_alpha_0">#0D000000</color>
+    <color name="white_a30">#4DFFFFFF</color>
+    <color name="divider_color">#DFE3F6</color>
+    <color name="yellow">#FBC02D</color>
+    <color name="gray_250">#FFC4C2BE</color>
+    <color name="gray_450">#FF5C5A57</color>
+    <color name="accent_color">#00C853</color>
+    <color name="light_green">#E5F8EE</color>
+    <color name="pending_color">#C5799F</color>
+    <color name="grey_700">#404653</color>
+    <color name="primary_color">#265AE8</color>
+    <color name="pink">#FFF1F3</color>
+
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.unical.home.ui.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="uz.unical.home.ui.CourseDetailFragment"
+        android:label="CourseDetailFragment" >
+        <action
+            android:id="@+id/action_courseDetailFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+     </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="uz.unical.home.ui.pager.CommentsFragment"
+        android:label="CommentsFragment" />
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="uz.unical.home.ui.pager.OverviewFragment"
+        android:label="OverviewFragment" />
+</navigation>

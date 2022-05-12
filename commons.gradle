@@ -1,0 +1,143 @@
+import uz.unical.buildSrc.Configurations
+import uz.unical.buildSrc.Libs
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-parcelize'
+
+
+android {
+    compileSdk Configurations.App.compileSdk
+
+    defaultConfig {
+        minSdk Configurations.App.minSdk
+        targetSdk Configurations.App.targetSdk
+        versionCode Configurations.App.versionCode
+        versionName Configurations.App.versionName
+
+        testInstrumentationRunner Configurations.Build.testInstrumentationRunner
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        Properties properties = new Properties()
+        if (project.rootProject.file('local.properties').canRead())
+            properties.load(new FileInputStream(project.rootProject.file('local.properties')))
+        else throw new GradleException("Could not read local.properties!")
+
+        debug {
+            buildConfigField("String", "BASE_URL", properties["BASE_URL"])
+        }
+
+        release {
+            buildConfigField("String", "BASE_URL", properties["BASE_URL"])
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = Configurations.Build.jvmTarget
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    kapt {
+        correctErrorTypes = true
+    }
+
+    packagingOptions {
+        resources {
+            resources.excludes += "/META-INF/AL2.0"
+            resources.excludes += "/META-INF/LGPL2.1"
+            resources.excludes += "/META-INF/gradle/incremental.annotation.processors"
+        }
+
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+        }
+    }
+}
+
+dependencies {
+    implementation(Libs.AndroidX.Core.core)
+    implementation(Libs.AndroidX.AppCompat.appcompat)
+
+    implementation(Libs.AndroidX.Lifecycle.lifecycle)
+    implementation(Libs.AndroidX.Activity.activity)
+    implementation(Libs.Hilt.hilt)
+    kapt(Libs.Hilt.hiltKapt)
+    implementation(Libs.Multidex.multidex)
+    implementation(Libs.Accompanist.SystemUiController.systemUiController)
+    implementation(Libs.Accompanist.Insets.insets)
+    implementation(Libs.AndroidX.Compose.ConstraintLayout.constraint)
+    implementation(Libs.Material.material)
+    implementation(Libs.Room.room)
+    kapt(Libs.Room.roomKapt)
+    implementation(Libs.Room.roomKtx)
+
+
+    implementation(Libs.Retrofit.retrofit)
+    implementation(Libs.Retrofit.retrofit_kotlinx_serialisation)
+    implementation(Libs.Okhttp.okhttp)
+    debugImplementation(Libs.Chucker.chucker_debug)
+    releaseImplementation(Libs.Chucker.chucker_release)
+    implementation(Libs.Kotlin.serialization)
+    implementation(Libs.Okhttp.okhttp)
+    api(Libs.Moshi.moshi)
+    kapt(Libs.Moshi.kapt)
+    api(Libs.Retrofit.retrofit_moshi)
+
+    testImplementation(Libs.Test.JUnit.junit)
+    androidTestImplementation(Libs.Test.AndroidJUnit.test)
+    androidTestImplementation(Libs.Test.Espresso.espresso)
+    androidTestImplementation(Libs.Test.ComposeUiTest.test)
+    debugImplementation(Libs.Test.ComposeDebugTooling.tooling)
+
+    implementation(Libs.Material.androidx_material)
+    implementation(Libs.Accompanist.Pager.pager)
+
+    implementation(Libs.Navigation.navigation_fragment)
+    implementation(Libs.Navigation.navigation_ui)
+    implementation(Libs.Navigation.navigation_dynamic)
+    implementation(Libs.Utils.avoid_conflict)
+
+    implementation(Libs.Paging.paging)
+    implementation(Libs.Glide.glide)
+    implementation(Libs.Glide.kapt)
+
+    implementation(Libs.Material.alphaMaterial)
+    implementation(Libs.Compressor.compressor)
+    implementation(Libs.Lottie.lottie)
+
+    implementation(Libs.MetaShimmer.shimmer)
+
+
+    implementation(Libs.Service.serviceLifecycle)
+}
